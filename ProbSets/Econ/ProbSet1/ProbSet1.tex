@@ -1,0 +1,106 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize\textsl{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{listings}
+\lstset{frame=single,
+language=Python,
+showstringspaces=false,
+columns=flexible,
+basicstyle={\small\ttfamily},
+numbers=none,
+breaklines=true,
+breakatwhitespace=true
+tabsize=3
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{harvard}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\numberwithin{equation}{section}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\newcommand\boldline{\arrayrulewidth{1pt}\hline}
+
+
+\begin{document}
+
+\begin{flushleft}
+\textbf{\large{Problem Set \#1}} \\
+  OSM \\
+  Sophie Sun
+ \end{flushleft}
+  
+  \vspace{3mm}
+  \noindent\textbf{Exercise 1}
+  \begin{enumerate}
+  \item The state variables are the number of barrels B and the price $p_t$ of the barrels.
+  \item The control variable is the number of barrels the owner chooses to sell (s).
+  \item The transition equation is B' = B - s where B' is the number of barrels left in future periods, B is the number of barrels in the current period, and s is the number of sales in the current period.
+  \item The sequence problem of the owner is \[{V_t}(B,p) = max \sum_{t=1}^{\infty} {(s_t)}_{t = 1}^{\infty} (\frac{1}{1+r}_{t-1}) {p_t} {s_t} \]
+  The Bellman equation is \[V(B) = max_{0 \leq s \leq B} ({ps}) + \frac{1}{1+r} V(B')\]
+  \item The owner's Euler equation is \[{p_t} = \frac {1}{1+r} {p_{t+1}}\] because \[(\frac{1}{1+r}_{t-1}) {p_t} {s_t} + \lambda(B - s) \] and taking this with respect to sales becomes \[(\frac{1}{1+r}_{t-1}) {p_t} + \lambda = 0 \] which equals \[(\frac{1}{1+r}_{t}) {p_{t+1}} + \lambda = 0 \] which becomes \[(\frac{1}{1+r}_{t-1}) {p_t} = \frac{1}{1+r}_{t}) {p_{t+1}} \] which becomes the owner's Euler equation.
+  \item If $p_{t+1}$ = $p_t$, the owner would sell all of her barrels of oil during the first period. If $p_{t+1} > p_t$, the owner would never sell any of her barrels of oil - she would continuously holding onto the barrels because selling her barrels during future periods give her more value. The condition on the path of prices necessary for an interior solution is if $p_t$ is between $p_{t+1}$ and $\frac {1}{1+r} {p_{t+1}}$
+  \end{enumerate}
+  
+  \noindent\textbf{Exercise 2}
+  \begin{enumerate}
+  \item The state variables are $y_t$, $k_t$, and $z_t$.
+  \item The control variables are $c_t$ and $i_t$.
+  \item The Bellman Equation that represents this sequence problem is \[V(k_t) = max_{c_t} u(c_t) + \beta E V(k')\] where $c_t = (1 - \delta) k_t + z(k_t)^\alpha - k_{t+1}$
+  \item The solution is in the jupyter notebook.
+  \end{enumerate}
+  
+  \noindent\textbf{Exercise 3}
+  \begin{enumerate}
+  \item The Bellman Equation that represents the planner's problem is \[V(k_t, z_t) = max_{c_t} u(c_t) + \beta E V(k', z')\] where $c_t = (1 - \delta) k_t + z(k_t)^\alpha - k_{t+1}$.
+  \item The solution is in the jupyter notebook.
+  \end{enumerate}
+  
+  \noindent\textbf{Exercise 4}
+  \begin{enumerate}
+  \item The Bellman Equation that represents this optimal stopping problem is \[V(w_t) = max\{V^a(w_t), V^d(w_t)\}\] where \[V^a(w_t) = w \sum_{n = 0}^\infty \beta^n\] \[V^d(w_t) = b + \beta E V(w')\]
+  \item The solution is in the jupyter notebook.
+  \end{enumerate}
+  
+  \end{document}

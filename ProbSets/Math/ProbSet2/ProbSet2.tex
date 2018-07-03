@@ -1,0 +1,426 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize\textsl{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{listings}
+\lstset{frame=single,
+  language=Python,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{harvard}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\numberwithin{equation}{section}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\newcommand\boldline{\arrayrulewidth{1pt}\hline}
+
+
+\begin{document}
+
+\begin{flushleft}
+  \textbf{\large{Problem Set \#2}} \\
+  OSM \\
+  Sophie Sun
+\end{flushleft}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 1}
+\begin{description}
+  \item[$\bullet$] \[<x,y> = \frac{1}{4}({\lVert\mathbf{x+y}\rVert}^2 - {\lVert\mathbf{x-y}\rVert}^2)\]
+  \[4<x,y> = {\lVert\mathbf{x+y}\rVert}^2 - {\lVert\mathbf{x-y}\rVert}^2\]
+  where 
+  \[{\lVert\mathbf{x+y}\rVert}^2 = <x+y, x+y> = {\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 + <x,y> + <y,x>\]
+  and 
+  \[{\lVert\mathbf{x-y}\rVert}^2 = <x-y, x-y> = {\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 - <x,y> - <y,x>\]
+    \[{\lVert\mathbf{x+y}\rVert}^2 + {\lVert\mathbf{x-y}\rVert}^2 = {\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 + <x,y> + <y,x> - ({\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 - <x,y> - <y,x>)\]
+    \[= <x,y> + <y,x> + <x,y> + <y,x> = 4<x,y>\]
+  \item[$\bullet$] \[{\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 = \frac{1}{2}({\lVert\mathbf{x+y}\rVert}^2 + {\lVert\mathbf{x-y}\rVert}^2)\]
+  \[2{\lVert\mathbf{x}\rVert}^2 + 2{\lVert\mathbf{y}\rVert}^2 = ({\lVert\mathbf{x+y}\rVert}^2 + {\lVert\mathbf{x-y}\rVert}^2)\]
+  where
+  \[{\lVert\mathbf{x+y}\rVert}^2 + {\lVert\mathbf{x-y}\rVert}^2=<x+y, x+y> + <x-y, x-y>\]
+  \[= {\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 + <x, y> + <y,x> + {\lVert\mathbf{x}\rVert}^2 + {\lVert\mathbf{y}\rVert}^2 - <x, y> - <y, x>\]
+  \[=2 {\lVert\mathbf{x}\rVert}^2 + 2{\lVert\mathbf{y}\rVert}^2\]
+
+\end{description}
+
+\noindent\textbf{Exercise 2} 
+\begin{description}
+\item Using proof from 1, \[Re<x,y> = \frac{1}{4}({\lVert\mathbf{x+y}\rVert}^2 - {\lVert\mathbf{x-y}\rVert}^2)\] 
+and 
+\[Re<x,iy> = \frac{1}{4}({\lVert\mathbf{x+iy}\rVert}^2 - {\lVert\mathbf{x-iy}\rVert}^2)\] 
+Because
+\[<x,y> = Re(<x,y>) + iIm(<x,y>)\]
+\[<x,y> = \frac{1}{4}({\lVert\mathbf{x+y}\rVert}^2 - {\lVert\mathbf{x-y}\rVert}^2 + i{\lVert\mathbf{x+iy}\rVert}^2 - i{\lVert\mathbf{x-iy}\rVert}^2)\] 
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 3}
+\begin{description}
+  \item[$\bullet$] \[cos(\theta) = \frac{<x,y>}{\lVert\mathbf{x}\rVert \lVert\mathbf{y}\rVert}\]
+  \[<x, x^5> = \int_0^1 x * x^5 dx =  \int_0^1 x^6 dx = \frac{x^7}{7}|_0^1 = \frac{1}{7}\]
+  \[<x,x> = \int_0^1 x * x dx =  \int_0^1 x^2 dx = \frac{x^3}{3}|_0^1 = \frac{1}{3}\]
+  \[<x^5, x^5> = \int_0^1 x^5 * x^5 dx =  \int_0^1 x^{10} dx = \frac{x^{11}}{11}|_0^1 = \frac{1}{11}\]
+  \[cos(\theta) = \frac{\frac{1}{7}}{\sqrt{\frac{1}{3}} * \sqrt{\frac{1}{11}}}\]
+  \[\theta = 34.8^{\circ}\]
+  \item[$\bullet$] \[<x^2, x^4> = \int_0^1 x^2 * x^4 dx =  \int_0^1 x^6 dx = \frac{x^7}{7}|_0^1 = \frac{1}{7}\]
+    \[<x^2,x^2> = \int_0^1 x^2 * x^2 dx =  \int_0^1 x^4 dx = \frac{x^5}{5}|_0^1 = \frac{1}{5}\]
+  \[<x^4, x^4> = \int_0^1 x^4 * x^4 dx =  \int_0^1 x^8 dx = \frac{x^{9}}{9}|_0^1 = \frac{1}{9}\]
+  \[cos(\theta) = \frac{\frac{1}{7}}{\sqrt{\frac{1}{5}} * \sqrt{\frac{1}{9}}}\]
+  \[\theta = 16.6^{\circ}\]
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 8}
+\begin{description}
+  \item[$\bullet$] Sets are orthonormal if the inner product is equal to 0 and norms are equal to 1.
+  \[<cos(t), sin(t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(t)sin(t)dt = \frac{1}{\pi} * \frac{sin^2(t)}{2}|_{-\pi}^{\pi} = 0\]
+  \[<cos(t), sin(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(t)sin(2t)dt = \frac{1}{\pi} * -\frac{sin(2t)sin(t) + 2cos(2t)cos(t)}{3}|_{-\pi}^{\pi} = 0\]
+  \[<cos(t), cos(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(t)cos(2t)dt = \frac{1}{\pi} * -\frac{cos(2t)sin(t) - 2sin(2t)cos(t)}{3}|_{-\pi}^{\pi} = 0\]
+  \[<sin(t), cos(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} sin(t)cos(2t)dt = \frac{1}{\pi} * \frac{cos(2t)cos(t) + 2sin(2t)sin(t)}{3}|_{-\pi}^{\pi} = 0\]
+  \[<sin(t), sin(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} sin(t)sin(2t)dt = \frac{1}{\pi} * \frac{sin(2t)cos(t) - 2cos(2t)sin(t)}{3}|_{-\pi}^{\pi} = 0\]
+ \[<cos(2t), sin(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(2t)sin(2t)dt = \frac{1}{\pi} * -\frac{cos^2(2x)}{4}|_{-\pi}^{\pi} = 0\]
+   \[<cos(t), cos(t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(t)cos(t)dt = \frac{1}{\pi} * (\frac{t}{2} + \frac{sin(2t)}{4}|_{-\pi}^{\pi}) = 1\]
+	\[<sin(t), sin(t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} sin(t)sin(t)dt = \frac{1}{\pi} * (\frac{t}{2} - \frac{sin(2t)}{4}|_{-\pi}^{\pi}) = 1\]
+  \[<cos(2t), cos(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} cos(2t)cos(2t)dt = \frac{1}{\pi} * (\frac{t}{2} + \frac{sin(4t)}{8}|_{-\pi}^{\pi}) = 1\]
+  \[<sin(2t), sin(2t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} sin(2t)sin(2t)dt = \frac{1}{\pi} * (\frac{t}{2} - \frac{sin(4t)}{8}|_{-\pi}^{\pi}) = 1\]
+  \item[$\bullet$]  $<t, t> = \frac{1}{\pi} \int_{-\pi}^{\pi} t * t dt =\frac{1}{\pi} * \int_{-\pi}^{\pi} t^2 dt = \frac{1}{\pi} * \frac{t^3}{3}|_{-\pi}^{\pi}) = \frac{2\pi^2}{3}$
+  \item[$\bullet$] \[proj_X(cos(3t)) = <X, cos(3t)>\frac{X}{\lVert\mathbf{X}\rVert^2}\]
+  \[<X, cos(3t)> = \frac{1}{\pi} \int_{-\pi}^{\pi} X * cos(3t) dt = \frac{1}{\pi} * \frac{Xsin(3t)}{3}|_{-\pi}^\pi = 0\]
+  \[proj_X(cos(3t)) = 0\]
+  \item[$\bullet$] \[proj_X(t) = <X, t>\frac{X}{\lVert\mathbf{X}\rVert^2}\]
+  \[<X,t> = \frac{1}{\pi} \int_{-\pi}^{\pi} X * t dt = \frac{1}{\pi} * \frac{Xt^2}{2}|_{-\pi}^\pi = 0\]
+  \[proj_X(t) = 0\]
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 9}
+\begin{description}
+  \item 
+  \[R_{\theta} =
+  \begin{bmatrix}
+   cos(\theta) & -sin(\theta) \\
+   sin(\theta)  & cos(\theta)
+\end{bmatrix}
+\]
+  \[Let \ v \ =
+  \begin{bmatrix}
+   v_1 \\
+   v_2
+\end{bmatrix}
+\]
+  \[Let \ w \ =
+  \begin{bmatrix}
+   w_1 \\
+   w_2
+\end{bmatrix}
+\]
+  \[T(v) =
+  \begin{bmatrix}
+   cos(\theta)v_1 - sin(\theta)v_2 \\
+   sin(\theta)v_1 + cos(\theta)v_2
+\end{bmatrix}
+\]
+  \[T(w) =
+  \begin{bmatrix}
+   cos(\theta)w_1 - sin(\theta)w_2 \\
+   sin(\theta)w_1 + cos(\theta)w_2
+\end{bmatrix}
+\]
+$<T(v), T(w)> = (cos(\theta)v_1 - sin(\theta)v_2)(cos(\theta)w_1 - sin(\theta)w_2) + (sin(\theta)v_1 + cos(\theta)v_2)(sin(\theta)w_1 + cos(\theta)w_2)$
+\[= cos^2(\theta)(v_1w_1 + v_2w_2) + sin(\theta)cos(\theta)(-v_1w_2-v_2w_1 + v_1w_2+v_2w_1) + sin^2(\theta)(v_2w_2+v_1w_1)\]
+\[= (cos^2(\theta) + sin^2(\theta))(v_1w_1+v_2w_2)\]
+\[= v_1w_1 + v_2w_2 = <v,w>\]
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 10}
+\begin{description}
+  \item[$\bullet$] Since Q is orthornormal, $<a, b> = <Qa, Qb>$. 
+  \[(Qa)^HQb = Q^Ha^HQb = a^Hb\] 
+  if and only if $Q^HQ = I$.
+  This also works the other way around, since $<Qa, Qb> = <a, b>$.
+  \item[$\bullet$] $\lVert\mathbf{(Qx)^2}\rVert = <Qx, Qx> = <x, x> = \lVert\mathbf{x^2}\rVert$ 
+  which means that $\lVert\mathbf{Qx}\rVert = \lVert\mathbf{x}\rVert$
+  \item[$\bullet$] Because $Q^HQ = I$, $Q^H = Q^{-1},$ 
+  \[(Q^H)^H = Q \ and \ (Q^H)^HQ^H = Q^HQ = Q^{-1}Q= I\],
+  which means that $Q^{-1}$ is also an orthonormal matrix.
+  \item[$\bullet$] Because Q is orthonormal, $(Q^HQ) = I$, which means $(Q^HQ)_{ij} = q_i^Hq_j$.
+  \item[$\bullet$] No.
+    \[Let \ Q \ =
+  \begin{bmatrix}
+   2 & 0 \\
+   0 & \frac{1}{2}
+\end{bmatrix} \]
+\[|{det(Q)}| = 1 \  but \ Q^HQ \neq I\]
+  \item[$\bullet$] Let Q = $Q_1Q_2$. $Q_1^HQ_1 = I, \ Q_2^HQ_2 = I$
+  \[Q = (Q_1Q_2)^H(Q_1Q_2) = Q_1^HQ_2^HQ_1Q_2 = Q_2^HQ_2 = I\] which means that Q is an orthonormal matrix.
+\end{description}
+
+\noindent\textbf{Exercise 11} 
+\begin{description}
+\item When we apply the Gram-Schmidt orthonormalization process to a collection of linearly dependent vectors, $q_k = 0$.
+\end{description}
+
+\noindent\textbf{Exercise 16} 
+\begin{description}
+\item[$\bullet$] Let $A \in \mathbb{M}_{mxn}(\mathbb{F})$ where $rank(A) = n \leq m$
+\[\exists Q \in \mathbb{M}_{mxm} \ \textit{and upper triangular} \ R \in \mathbb{M}_{mxn} \ where \ A = QR \]
+\[-Q(-Q)^H = QQ^H = I, \ and \ (-Q)^H(-Q) = I \]
+\[-R \ \textit{is upper triangular, which means} \ A = QR = (-Q)(-R)\]
+\item[$\bullet$] If A is invertible, it has 2 QR decompositions, QR and $\tilde{Q}\tilde{R}$ where R and $\tilde{R}$ are positive. 
+\[\tilde{R}^{-1}R = Q^H\tilde{Q}, \ \tilde{R}^{-1}R = I\]
+\[R = \tilde{R}, Q = \tilde{Q}\]
+\end{description}
+
+\noindent\textbf{Exercise 17} 
+\begin{description}
+\item \[A^HAx = A^Hb\] 
+\[(\hat{Q}\hat{R})^H\hat{Q}\hat{R}x = (\hat{Q}\hat{R})^Hb\] 
+\[\hat{R}^H\hat{Q}^H\hat{Q}\hat{R}x = \hat{R}^H\hat{Q}^Hb\]
+\[R^{-1}(\hat{R}^H\hat{Q}^H\hat{Q}\hat{R}x = \hat{R}^H\hat{Q}^Hb)\]
+\[\hat{R}x = \hat{Q}^Hb\]
+\end{description}
+
+\noindent\textbf{Exercise 23} 
+\begin{description}
+\item \[||x|| = ||x - y + y|| \leq ||x - y|| + ||y||\]
+\[||x|| - ||y|| \leq ||x - y||\]
+\[||y|| = ||-y|| = ||x - y + x|| \leq ||x - y|| +  ||x||\]
+\[||y|| - ||x|| \leq ||x - y|| \]
+\end{description}
+
+\noindent\textbf{Exercise 24} 
+\begin{description}
+\item [$\bullet$] \[\textit{Positivity: because } |f(t)| \geq 0, \int_a^b f(t)dt \geq 0\]
+\[\textit{Scale preservation: let } a \in \mathbb{R}. ||af(t)||_{L^1} = \int_a^b |af(t)|dt = |a|\int_a^b f(t)dt\]
+$\textit{Triangle inequality: let } g \in C[a,b]. \ because \ |f(t) + g(t)| \leq |f(t)| + |g(t)|, \ \int_a^b |f(t) + g(t)| dt \leq \int_a^b f(t)dt + \int_a^b g(t)dt$
+\item [$\bullet$] \[\textit{Positivity: because } |f(t)^2| \geq 0, (\int_a^b f(t)^2dt)^{\frac{1}{2}} \geq 0\]
+\[\textit{Scale preservation: let } a \in \mathbb{R}. ||af(t)||_{L^2} = \int_a^b (|af(t)|^2dt)^{\frac{1}{2}} = a\int_a^b f(t)^2dt)^{\frac{1}{2}}\]
+$\textit{Triangle inequality: let } g \in C[a,b]. \ because \ |f(t) + g(t)| \leq |f(t)| + |g(t)|, \ (\int_a^b |f(t) + g(t)|^2dt)^{\frac{1}{2}} \leq (\int_a^b f(t)^2dt)^{\frac{1}{2}} + (\int_a^b g(t)^2dt)^{\frac{1}{2}}$
+\item [$\bullet$] \[\textit{Positivity: because } |f(x)| \geq 0, \ sup_{x\in[a,b]}|f(x)| \geq 0\]
+\[\textit{Scale preservation: let } a \in \mathbb{R}. ||af||_{L^\infty} = sup_{x\in[a,b]}|a||f(x)| = asup_{x\in[a,b]}|f(x)|\]
+$\textit{Triangle inequality: let } g \in C[a,b]. \ because \ |f(t) + g(t)| \leq |f(t)| + |g(t)|, \ sup_{x\in[a,b]}|f(x) + g(x)| \leq sup_{x\in[a,b]}|f(x)| + sup_{x\in[a,b]}|g(x)|$
+\end{description}
+
+\noindent\textbf{Exercise 26} 
+\begin{description}
+\item Skipped (1)
+\end{description}
+
+\noindent\textbf{Exercise 28} 
+\begin{description}
+\item [$\bullet$] \[\frac{1}{\sqrt{n}||x||_2} \leq \frac{1}{||x||_1} \leq \frac{1}{||x||_2}\]
+\[||Ax||_2 \leq ||Ax||_1 \leq \sqrt{n}||Ax||_2\]
+\[\sqrt{n}||A||_2 \geq ||A||_1\]\
+\[\frac{1}{\sqrt{n}}||A||_2 \leq ||A||_1 \leq \sqrt{n}||A||_2\]
+\item [$\bullet$] \[\frac{1}{\sqrt{n}||x||_\infty} \leq \frac{1}{||x||_2} \leq \frac{1}{||x||_\infty}\]
+\[||Ax||_\infty \leq ||Ax||_2 \leq \sqrt{n}||Ax||_\infty\]
+\[\sqrt{n}||A||_\infty \geq ||A||_2\]
+\[\frac{1}{\sqrt{n}}||A||_\infty \leq ||A||_2 \leq \sqrt{n}||A||_\infty\]
+\end{description}
+
+\noindent\textbf{Exercise 29} 
+\begin{description}
+\item \[||Q|| = sup_{x \neq 0}\frac{||Q_x||_2}{||x||_2} = sup_{x \neq 0}\frac{||x||_2}{||x||_2} = 1\]
+\[\textit{Since } ||Ax|| \leq ||A|| ||x||, \ ||Rx|| = sup_{A \neq 0} \frac{||Ax||_2}{||A||} \leq sup_{A \neq 0} \frac{||Ax||_2||x||_2}{||Ax||_2}\]
+\[\textit{Since } ||Ax||_2 = ||x||_2 = ||Rx|| \ and \ ||A|| = 1,\]
+\[||A|| \leq \frac{||Ax||}{||x||}\]
+\end{description}
+
+\noindent\textbf{Exercise 30} 
+\begin{description}
+\item \[\textit{Positivity: because } ||A||_S \geq 0, ||SAS^{-1}|| \geq 0 \ so \ ||A|| \geq 0\]
+\[\textit{Scale preservation: let } a \in \mathbb{R}. ||aA||_S = ||aSAS^{-1}|| = a||SAS^{-1}|| = a||A||_S\]
+$\textit{Triangle inequality: let } B \in \mathbb{M}_n(\mathbb{F}). ||A + B||_S = ||S(A + B)S^{-1}|| = ||SAS^{-1} + SBS^{-1}|| \leq ||SAS^{-1}|| + ||SBS^{-1}|| = ||A||_S + ||B||_S$
+\end{description}
+
+\noindent\textbf{Exercise 37} 
+\begin{description}
+\item \[Let \ p \in V, \ p = ax^2 + bx + c = <a, b, c> \]
+\[Find \ q \ in V \ \textit{that satisfies } L[p] = p'(1) = p'q	= 2a + b\] 
+\[q = (2, 1, 0)\]
+\end{description}
+
+\noindent\textbf{Exercise 38} 
+\begin{description}
+\item \[Let \ p \in V, \ p = ax^2 + bx + c, \ p = (a, b, c)^T, \ p' = D(p) = (0, 2a, b)^T\]
+  \[D =
+  \begin{bmatrix}
+   0 & 0 & 0 \\
+   2 & 0 & 0 \\
+   0 & 1 & 0
+\end{bmatrix}
+\]
+  \[Hermitian =
+  \begin{bmatrix}
+   0 & 2 & 0 \\
+   0 & 0 &1 \\
+   0 & 0 & 0
+\end{bmatrix}
+\]
+\end{description}
+
+\noindent\textbf{Exercise 39} 
+\begin{description}
+\item [$\bullet$] \[<(S + T)*w, v>_v = <w, (S+T)v>_w\]
+\[<w, Sv + Tv>_w = <w, Sv>_w + <w, Tv>_w\]
+\[<S*w, v>_v + <T*w, v>_v = <S*w + T*w, v>_v\]
+\[(S+T)* = S* + T*\]
+\[<(aT)*w, v>_v = <w, (aT)v>_w\]
+\[<w, aTv>_w = a<w, Tv>\]
+\[a<T*w, v> = <\overline{a}T*w, v>\]
+\[(aT)* = \overline{a}T\]
+\item [$\bullet$] \[<w, Sv>_w = <S*w, v>_v = \overline{<v, S*w>_v} = \overline{<S**v, w>_w} = <w, S**v>_w\]
+\[S = S**\]
+\item [$\bullet$] \[<(ST)*v', v>_v = <v', (ST)v>_v = <v', S(Tv)>_v \]
+\[<S*v', Tv>_v = <T*S*v', v>_v\]
+\[(ST)* = T*S*\]
+\item [$\bullet$] \[T*(T*)^{-1} = (TT^{-1})* = I* = I \]
+\end{description}
+
+\noindent\textbf{Exercise 40} 
+\begin{description}
+\item [$\bullet$] \[Let \ B, \ C \in \mathbb{M}_n(\mathbb{F})\] 
+\[<B, AC> = <tr(B^HAC)> = tr(A^HB)^HC) = <A^HB, C>\]
+\[A* = A^H\]
+\item [$\bullet$] \[Let \ A_1, A_2, A_3 \in \mathbb{M}_n(\mathbb{F})\]
+\[<A_2, A_3, A_1> = tr(A_2^HA3A1) = tr(A_1A_2^HA_3) = tr((A_2A_1^H)^HA_3) = <A_2, A_1^H, A_3>\]
+\[A_1^H = A_1^* \rightarrow <A_2, A_3, A_1> = <A_2A1^*,A_3>\]
+\item [$\bullet$] \[Let \ A, B, C \in \mathbb{M}_n(\mathbb{F})\]
+\[<B, AC - CA> = <B, AC> - <B, CA>\]
+\[<B, CA> = <BA*, C>\]
+\[<B, AC> = tr(B^HAC) = tr((A^HB)^HC) = <A^HB, C> = <A*B, C>\]
+\[(T_A)^* = T_{A^*}\]
+\end{description}
+
+\noindent\textbf{Exercise 44} 
+\begin{description}
+\item \[Let \ x \in \mathbb{F} \ s.t. \ Ax = b, \ then \ \forall y \in N(A^H),\]
+\[<y, b> = <y, Ax> = <A^Hy, x> = <0, x> = 0\]
+\[If \ <y, b> \neq 0, \ then \ b \not\in N(A^H) = R(A)\]
+\[No \ x \in \mathbb{F}, Ax = b\]
+\end{description}
+
+\noindent\textbf{Exercise 45} 
+\begin{description}
+\item \[Let \ A \in Skew_n(\mathbb{R}), \ B \in Sym_n(\mathbb{R})\]
+\[<A, B> = <-A, B> = -<A, B> = tr(AB)\]
+\[<A, B> = <B, A> = tr(B^TA) = tr(BA) = tr(AB) \]
+\[tr(AB) = -tr(AB) = 0, \ <A, B> = 0\]
+\[Let \ B \in Sym_n(\mathbb{R})^\perp\]
+\[<B + B^T, B> = tr((B + B^T)B) = tr(BB + B^TB) = tr(BB) + tr(B^TB) = 0\]
+\[<B^T, B> = <-B, B>\]
+\[B^T = -B\]
+\[Sym_n(\mathbb{R})^\perp = Skew_n(\mathbb{R})\]
+\end{description}
+
+\noindent\textbf{Exercise 46} 
+\begin{description}
+\item [$\bullet$] \[A^HAx = A^H(Ax) = 0\]
+\[Ax \in N(A^H) \ \rightarrow \ Ax \in R(A) \]
+\item [$\bullet$] \[Let \ x \in N(A), \ Ax = 0\]
+\[A^HAx = 0, \ x \in N(A^HA)\]
+\[Let \ x \in N(A^HA), \ A^HAx = 0\]
+\[<Ax, Ax> = x^HA^HAx = 0\]
+\[||Ax|| = 0 \ \rightarrow \ Ax = 0\]
+\item [$\bullet$]\[n = rank(A) + dimN(A),  \ n = rank(A^HA) + dimN(A^HA)\] 
+\[rank(A) = rank(A^HA)\]
+\item [$\bullet$] \[n = rank(A) = rank(A^HA) \ \rightarrow \ A^HA \in \mathbb{M}_n\textit{ is nonsingular}\]
+\end{description}
+
+\noindent\textbf{Exercise 47} 
+\begin{description}
+\item [$\bullet$] \[P^2 = A(A^HA)^{-1}A^HA(A^HA)^{-1}A^H = A(A^HA)^{-1}A^H\]
+\item [$\bullet$] \[P^H = (A(A^HA)^{-1}A^H)^H = A((A^HA)^{-1})^HA^H = A((A^HA)^H)^{-1}A^H = A(A^HA)^{-1}A^H = P\]
+\item [$\bullet$] \[rank(P) = rank(A(A^HA)^{-1}A^H)\]
+\[tr(A(A^HA)^{-1}A^H) = tr(A^HA(A^HA)^{-1}) = tr(I)\]
+I has dimensions nxn, which means rank(I) = n $\rightarrow$ rank(P) = n
+\end{description}
+
+\noindent\textbf{Exercise 48} 
+\begin{description}
+\item Skipped (2)
+\end{description}
+
+\noindent\textbf{Exercise 50} 
+\begin{description}
+\item \[y^2 = \frac{1}{s} + \frac{rx^2}{s} \ where \ A^HAx = A^Hb \ where\]
+  \[A =
+  \begin{bmatrix}
+   1 & x_1^2 \\
+   1 & x_2^2 \\
+   \vdots & \vdots \\
+   1 & x_n^2
+\end{bmatrix}
+\]
+  \[x =
+  \begin{bmatrix}
+   \frac{1}{s} \\
+   \frac{-r}{s}
+\end{bmatrix}
+\]
+  \[b =
+  \begin{bmatrix}
+    y_1^2 \\
+   y_2^2 \\
+   \vdots \\
+   y_n^2
+\end{bmatrix}
+\]
+  \[A^Hb =
+  \begin{bmatrix}
+   \sum_i y_i^2 \\
+   \sum_i x_i^2y_i^2
+\end{bmatrix}
+\]
+\end{description}
+
+\end{document}
