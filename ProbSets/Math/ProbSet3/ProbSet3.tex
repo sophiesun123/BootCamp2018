@@ -1,0 +1,300 @@
+\documentclass[letterpaper,12pt]{article}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{geometry}
+\geometry{letterpaper,tmargin=1in,bmargin=1in,lmargin=1.25in,rmargin=1.25in}
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\footnotesize\textsl{Page \thepage\ of \pageref{LastPage}}}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+\usepackage[format=hang,font=normalsize,labelfont=bf]{caption}
+\usepackage{listings}
+\lstset{frame=single,
+  language=Python,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{harvard}
+\usepackage{setspace}
+\usepackage{float,color}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{colorlinks,linkcolor=red,urlcolor=blue}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{derivation}{Derivation} % Number derivations on their own
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}{Proposition} % Number propositions on their own
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+%\numberwithin{equation}{section}
+\bibliographystyle{aer}
+\newcommand\ve{\varepsilon}
+\newcommand\boldline{\arrayrulewidth{1pt}\hline}
+
+
+\begin{document}
+
+\begin{flushleft}
+  \textbf{\large{Problem Set \#3}} \\
+  OSM \\
+  Sophie Sun
+\end{flushleft}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 2}
+\begin{description}
+  \item[$\bullet$] 
+ \[ Let D =
+  \begin{bmatrix}
+   0 & 2 & 0 \\
+   0 & 0 & 1 \\
+   0 & 0 & 0
+\end{bmatrix}
+\]
+All eigenvalues of D are 0 because D is upper triangular. Therefore, the algebraic multiplicity is 3. Because D has 1 eigenvector for eigenvalue of 0 and the eigenspace of 0 is span({1}), the geometric multiplicity is 1.
+\end{description}
+
+\noindent\textbf{Exercise 4} 
+\begin{description}
+\item [$\bullet$]
+ \[ Let A =
+  \begin{bmatrix}
+   a & b \\
+   c & d
+\end{bmatrix}
+\]
+So det(A) = ad - bc and if $A^H = A$, then $a = \overline{a}, b = \overline{c}, d = \overline{d}$, which means a and d are real. Because $bc = \overline{c}c = ||c||^2$ is also real. 
+\[p(\lambda) = \lambda^2 -tr(A)\lambda + det(A) = \lambda^2 - (a + d)\lambda + ad - ||c||^2\] 
+\[\lambda = \frac{(a + d) \pm \sqrt{(a - d) ^2 + ||c||^2}}{2}\]
+Because $(a - d)^2 + ||c||^2 \geq 0, \lambda$ is real.
+\item [$\bullet$] 
+ \[ Let A =
+  \begin{bmatrix}
+   a & b \\
+   c & d
+\end{bmatrix}
+\]
+Because $a = -\overline{a}, b = -\overline{c}, d = -\overline{d}$, a and d are imaginary. Because $bc = -\overline{c}c = -||c||^2$, a and d are also negative. 
+\[p(\lambda) = \lambda^2 -tr(A)\lambda + det(A) = \lambda^2 - (a + d)\lambda + ad - ||c||^2\] 
+\[\lambda = \frac{(a + d) \pm \sqrt{(a - d) ^2 + ||c||^2}}{2}\]
+Because $(a - d)^2 + ||c||^2 < 0, \lambda$ is imaginary.
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 6}
+\begin{description}
+ \item If matrix A is upper triangular, $det(A) = \Pi_{i=1}^n a_{ii}$ and its eigenvalues are such that $det(\lambda I -A) = 0$. 
+ \[det(\lambda I -A) =  \Pi_{i=1}^n a_{ii} = 0\]
+ This implies that the eigenvalues are given by the diagonal elements of matrix A.
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 8}
+\begin{description}
+\item[$\bullet$] Because this set is orthonormal given the inner product $\frac{1}{\pi}\int_{-\pi}^{\pi} f(t)g(t)dt$, each element is independent and forms a basis for V. 
+\item[$\bullet$] $Dsin(x) = cos(x), Dcos(x) = -sin(x), Dcos(2x) = -2sin(2x), Dsin(2x) = 2cos(2x)$, so 
+ \[ D =
+  \begin{bmatrix}
+   0 & -1 & 0 & 0 \\
+   1 & 0 & 0 & 0 \\
+   0 & 0 & 0 & -2 \\
+   0 & 0 & 2 & 0 
+\end{bmatrix}
+\]
+\item[$\bullet$] $span({sin(x), cos(x)}) \ and \ span({sin(2x), cos(2x)})$
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 13}
+\begin{description}
+  \item $det(\lambda I -A) = \lambda^2 -1.4\lambda + 0.4$ which means the roots and eigenvalues are 1 and 0.4, and 
+   \[
+  \begin{bmatrix}
+   -0.2 & 0.4 \\
+   0.2 & -0.4
+\end{bmatrix}
+\]
+has a solution of $[2 \ \ 1]^T$.
+The eigenvector for $\lambda = 0.4$ has a null space 
+ \[
+  \begin{bmatrix}
+   0.4 & 0.4 \\
+   0.2 & 0.2
+\end{bmatrix}
+\]
+with a solution of $[1 \ \  1]^T$, which means
+ \[P =
+  \begin{bmatrix}
+   2 & 1 \\
+   1 & -1
+\end{bmatrix}
+\]
+\end{description}
+
+\vspace{3mm}
+\noindent\textbf{Exercise 15}
+\begin{description}
+  \item Let $(\lambda_i)_{i=1}^n$ be the eigenvalues of matrix $A \in M_n(\mathbb{F})$ and $f(x) = a_0 + a_1x + a_2x^2 + \dots + a_nx^n$. Because A can be diagonalized as $PBP^{-1}$
+  \[f(A) = a_0I + a_1A + a_2A^2 + \dots + a_nA^n = a_0PP^{-1} + a_1PBP^{-1} + a_2PB^2P^{-1} + \dots + a_nPB^nP^{-1} = Pf(B)P^{-1}\]
+  Because each term in f(B) is a diagonal matrix, the eigenvalues are $(f(\lambda_i))_{i=1}^n$
+\end{description}
+
+\noindent\textbf{Exercise 16} 
+\begin{description}
+\item[$\bullet$] $A^n = PC^nP^{-1}$
+ \[C^n =
+  \begin{bmatrix}
+   1^n & 0 \\
+   0 & 0.4^n
+\end{bmatrix}
+\]
+ \[A^k = \frac{1}{3}
+  \begin{bmatrix}
+   2 + 0.4^k & 2 - 2 * 0.4^k \\
+   1 - 0.4^k & 1 + 2 * 0.4^k
+\end{bmatrix}
+\]
+ \[B = \frac{1}{3}
+  \begin{bmatrix}
+   2 & 2 \\
+   1 & 1
+\end{bmatrix}
+\]
+ \[A^k - B = \frac{1}{3}
+  \begin{bmatrix}
+   0.4^k & - 2 * 0.4^k \\
+   - 0.4^k & 2 * 0.4^k
+\end{bmatrix}
+\]
+where each term converges with respect to the 1-norm.
+\item[$\bullet$] $-0.4^k + 2 * 0.4^k \rightarrow 0 \ as \ k \rightarrow \infty$ and the $\infty$ norm is the largest row sum, so
+\[||A^k -B||_F = \sqrt{tr(\begin{bmatrix}
+   2 * 0.4^{2k} & -4 * 0.4^{2k} \\
+   -4 * 0.4^{2k} & 8 * 0.4^{2k}
+\end{bmatrix})}\]
+\[= \sqrt{10 * 0.4^{2k}} \rightarrow 0 \ as \ k \rightarrow \infty\]
+Because $||A^k - B||_F \rightarrow 0$, the answer doesn't depend on the norm.
+\item[$\bullet$] $f(A) = 3I + 5A + A^3 \ where \ f(1) = 3 + 5 + 1 = 9 \ and \ f(0.4) = 3 + 5 * 0.4 + 0.4^3 = 5.06$
+\end{description}
+
+\noindent\textbf{Exercise 18} 
+\begin{description}
+\item Let $\lambda$ be an eigenvalue of $A \in M_n(\mathbb{F})$. Because $A$ and $A^T$ have the same characteristic polynomial, $\lambda$ is an eigenvalue of $A^T$, which means $A^Tx = \lambda x \rightarrow (A^Tx)^T = (\lambda x)^T$. Therefore, $x^TA = \lambda x^T$
+\end{description}
+
+\noindent\textbf{Exercise 20} 
+\begin{description}
+\item If A is Hermitian and orthonormally similar to B,
+\[ B = PAP^H = PA^HP^H = (PAP^H)^H = B^H\]
+\end{description}
+
+\noindent\textbf{Exercise 24} 
+\begin{description}
+\item If A is Hermitian,
+\[<x, Ax> = x^HAx = x^HA^Hx = <Ax, x> = \overline{<x, Ax>}\]. Because the numerator is real, the Rayleigh quotient takes real values.
+If A is skew Hermitian,
+\[<x, Ax> = x^HAx = -x^HA^Hx = -<Ax, x> = -\overline{<x, Ax>}\]
+Because the numerator is imaginary, the Rayleigh quotient takes imaginary values.
+\end{description}
+
+\noindent\textbf{Exercise 25} 
+\begin{description}
+\item [$\bullet$] $Because \ <x_j, x_j> = x_j^H x_j = 1, \ and \ <x_i, x_j> = x_i^Hx_j = 0, \ (x_1x_1^H + \dots + x_nx_n^H)x_j = x_jx_j^Hx_j = Ix_j, \ so \ I = x_1x_1^H + \dots + x_nx_n^H$.
+\item [$\bullet$] $Because \ (\lambda_1 x_1x_1^H + \dots + \lambda_n x_nx_n^H)x_j = \lambda x_jx_j^Hx_j = \lambda x_j = Ax_j, \ so \ A = \lambda_1 x_1x_1^H + \dots + \lambda_n x_nx_n^H $
+\end{description}
+
+\noindent\textbf{Exercise 27} 
+\begin{description}
+\item Let $e_i$ be the ith vector of the standard basis. $Because \ <x, Ax> = x^HAx > 0 \ for \ all \ x \neq 0, 0 < e_i^HAe_i = a_{ii}$ must be real and positive.
+\end{description}
+
+\noindent\textbf{Exercise 31} 
+\begin{description}
+\item[$\bullet$] $Let \ A = USigma V^H, y = V^Hx$
+\[||A||_2 = sup_{x \neq 0} \frac{||Ax||_2}{||x||_2} =sup_{x \neq 0} \frac{||U\Sigma V^Hx||_2}{||x||_2} = sup_{x \neq 0} \frac{||\Sigma V^Hx||_2}{||x||_2} = sup_{y \neq 0} \frac{||\Sigma y||_2}{||Vy||_2} =\]
+\[sup_{y \neq 0} \frac{||\Sigma y||_2}{||y||_2} = sup_{y = 1} ||\Sigma y||_2 = \sigma_1\]
+\item[$\bullet$] $Let \ A = U\Sigma V^H \ so \ A^{-1} = V\Sigma ^{-1}U^H$. Because $\frac{1}{\sigma_1}, \dots , \frac{1}{\sigma_n}$ are the diagonal entries of $\Sigma ^{-1}, \frac{1}{\sigma_n}$ is the largest singular value of $A^{-1}$ and $||A^{-1}||_2 = \frac{1}{\sigma_n}$
+\item[$\bullet$] $Let \ A = U\Sigma V^H \ so \ A^T = V\Sigma ^T U^T \ and \ A^H = V\Sigma ^HU^H$.
+\[||A||_2^2 = ||A^T||_2^2 = ||A^H||_2^2 = \sigma_1^2\]
+\[A^HA= V\Sigma ^HU^HU\Sigma V^H  = V\Sigma ^H\Sigma V^H = V\Sigma ^2 V^H\]
+\[||A^HA||_2 = \sigma_1^2 = ||A||_2^2\] 
+\item[$\bullet$] \[||UAV||_2^2 = ||(UAV)^HUAV||_2 = ||V^HA^HAV||_2 = ||A^HAVV^H||_2 = ||A^HA||_2 = ||A||_2^2 \]
+\end{description}
+
+\noindent\textbf{Exercise 32} 
+\begin{description}
+\item[$\bullet$] \[||UAV||_F = \sqrt{tr(V^HA^HU^HUAV)} = \sqrt{tr(V^HA^HAV)} = \sqrt{tr(A^HAVV^H)} = \sqrt{tr(A^HA)} = ||A||_F\]
+\item[$\bullet$] \[||A||_F = ||U\Sigma V^H||_F = ||\Sigma ||_F = \sqrt{tr(\Sigma ^H\Sigma)} = (\sum_{i=1}^r \sigma_i^2)^{\frac{1}{2}} = (\sigma_1^2 + \sigma_2^2 + \dots + \sigma_r^2)^{\frac{1}{2}}\]
+\end{description}
+
+\noindent\textbf{Exercise 33} 
+\begin{description}
+\item Because $||A||_2 = \sigma_1$ with $\sigma_1$ being the largest singular value of A, 
+\[sup_{||x||_2 = 1, ||y||_2 = 1} |y^HAx \leq sup_{||x||_2 = 1, ||y||_2 = 1} ||y||_2 ||\Sigma x||_2\]
+\[= sup_{||x||_2 = 1} ||\Sigma x||_2 \leq \sigma_1\]
+\[sup_{||x||_2 = 1, ||y||_2 = 1} |y^HAx| \geq |y^HAx| = \sigma_1\]
+\end{description}
+
+\noindent\textbf{Exercise 36} 
+\begin{description}
+\item 
+\[Let \ A = 
+  \begin{bmatrix}
+   0 & 2  \\
+   1 & 0
+\end{bmatrix}
+\]
+\[A^HA = 
+  \begin{bmatrix}
+   1 & 0  \\
+   0 & 4
+\end{bmatrix}
+\]
+where det(A) = -2 and the singular values are 1 and 2 with eigenvalues $\pm \sqrt{2}$.
+\end{description}
+
+\noindent\textbf{Exercise 38} 
+\begin{description}
+\item [$\bullet$] \[AA^\dagger A = U_1V_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U_1^HU_1\Sigma_1V_1^H = U_1\Sigma_1\Sigma_1^{-1}\Sigma_1V_1^H = U_1\Sigma_1V_1^H = A\]
+\item [$\bullet$] \[A^\dagger AA^\dagger = V_1\Sigma_1^{-1}U_1^HU_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U_1^H = V_1\Sigma_1^{-1}\Sigma_1\Sigma_1^{-1}U_1^H = V_1\Sigma_1^{-1}U_1^H = A^\dagger\]
+\item [$\bullet$] \[(AA^\dagger)^H =(U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U_1^H)^H = U_1\Sigma_1V_1^HV_1\Sigma_1^{-1}U_1^H = AA^\dagger\] 
+\item [$\bullet$] \[(A^\dagger A)^H = (V_1\Sigma_1^{-1}U_1^HU_1\Sigma_1V_1^H)^H =V_1\Sigma_1^{-1}U_1^HU_1\Sigma_1V_1^H = A^\dagger A \]
+\item [$\bullet$] \[(AA^\dagger A)A^\dagger = A^\dagger A \rightarrow (AA^\dagger)(AA^\dagger) = A^\dagger A\]
+Let $ U_1 = [u_1, \dots , u_n] $ where $U_1$ is an orthonormal basis for $\mathbb{R}(A)$.
+\[AA^\dagger = U_1U_1^Hx = U_1[u_1^Hx, \dots , u_n^Hx] = \sum_{i=1}^n u_i^Hxu_i = \sum_{i=1}^n <u_i, x>u_i = proj_{\mathbb{R}(A)} x\]
+\item [$\bullet$] Let $V_1 = [v_1, \dots , v_n] $ where $V_1$ is an orthonormal basis for $\mathbb{R}(A^H)$.
+\[A^\dagger Ax = V_1V_1^Hx = V_1[v_1^Hx, \dots , v_n^Hx] = \sum_{i=1}^n v_i^Hxv_i = \sum_{u=1}^n <v_i, x>v_i = proj_{\mathbb{R}(A^H)}x\]
+\end{description}
+
+\end{document}
